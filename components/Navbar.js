@@ -38,8 +38,8 @@ export default function ButtonAppBar() {
             </Link>
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color="primary">
-            <Link href="/about">
-              <a>About</a>
+            <Link href="/lavora-con-noi">
+              <a>Lavora con noi</a>
             </Link>
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
