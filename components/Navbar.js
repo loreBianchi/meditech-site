@@ -12,7 +12,7 @@ export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar 
-        position="static" 
+        position="fixed" 
         color="transparent" 
         elevation={0}
         >
