@@ -6,7 +6,10 @@ export default function Layout({ children, maxWidth, disableGutters = false }) {
   return (
     <>
       <Navbar />
-      <Container maxWidth={maxWidth} disableGutters={disableGutters}>
+      <Container 
+        maxWidth={maxWidth} 
+        disableGutters={disableGutters}
+      >
         {children}
       </Container>
       <Footer />

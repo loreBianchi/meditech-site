@@ -15,7 +15,7 @@ const services = [
 function Servizi() {
   return (
      <Layout>
-       <Container maxWidth="lg">
+       <Container sx={{ pt: 10, minHeight: 'calc(100vh - 163px)' }}>
        <Typography
           component="h2"
           variant="h3"
