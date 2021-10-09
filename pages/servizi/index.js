@@ -27,7 +27,7 @@ function Servizi() {
         <ul>
           {services.map(service => (
             <li key={service.link}>
-              <Link href={`servizi/${service.link}`}>
+              <Link href={`/servizi/${service.link}`}>
                 <a>{service.label}</a>
               </Link>
             </li>

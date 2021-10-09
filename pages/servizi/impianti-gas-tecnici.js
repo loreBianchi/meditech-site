@@ -3,7 +3,7 @@ import ServicePage from "../../components/ServicePage";
 function ImpiantiGasTecnici() {
   return (
       <ServicePage 
-        backgroundImage="/test-img.jpg"
+        backgroundImage="/gas.jpeg"
         title="Impianti Gas tecnici" 
       />
     )

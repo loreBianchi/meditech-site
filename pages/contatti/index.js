@@ -5,7 +5,7 @@ import Layout from "../../components/Layout";
 function Contatti() {
   return (
      <Layout>
-       <Container maxWidth="lg">
+       <Container maxWidth="lg" sx={{ minHeight: 'calc(100vh - 163px)', pt: 10 }}>
        <Typography
           component="h2"
           variant="h3"

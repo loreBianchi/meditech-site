@@ -8,7 +8,28 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function ButtonAppBar() {
+export default function Navbar() {
+  const [state, setState] = React.useState({
+    mobileView: false,
+  });
+
+  const { mobileView } = state;
+
+  React.useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setState(() => ({ mobileView: true }))
+        : setState(() => ({ mobileView: false }));
+    };
+
+    setResponsiveness();
+    window.addEventListener("resize", () => setResponsiveness());
+
+    return () => {
+      window.removeEventListener("resize", () => setResponsiveness());
+    }
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar 
@@ -17,32 +38,38 @@ export default function ButtonAppBar() {
         elevation={0}
         >
         <Toolbar>
-          <Link href="/">
-            <a>
-              <Image
-                alt="Meditech logo"
-                src="/meditech.png"
-                width={120}
-                height={32}
-              />          
-            </a>
-          </Link>
-          <Typography variant="h6" component="div" sx={{ mx: 3 }} color="primary">
-            <Link href="/servizi">
-              <a>Servizi</a>
+        {!mobileView 
+          ? (<>
+            <Link href="/">
+              <a>
+                <Image
+                  alt="Meditech logo"
+                  src="/meditech.png"
+                  width={120}
+                  height={32}
+                />          
+              </a>
             </Link>
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ mr: 3 }} color="primary">
-            <Link href="/contatti">
-              <a>Contati</a>
-            </Link>
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color="primary">
-            <Link href="/lavora-con-noi">
-              <a>Lavora con noi</a>
-            </Link>
-          </Typography>
-          {/* <Button color="inherit">Login</Button> */}
+            <Typography variant="h6" component="div" sx={{ mx: 3 }} color="primary">
+              <Link href="/servizi">
+                <a>Servizi</a>
+              </Link>
+            </Typography>
+            <Typography variant="h6" component="div" sx={{ mr: 3 }} color="primary">
+              <Link href="/contatti">
+                <a>Contati</a>
+              </Link>
+            </Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color="primary">
+              <Link href="/lavora-con-noi">
+                <a>Lavora con noi</a>
+              </Link>
+            </Typography>
+            </>)
+          : (<>
+            <MenuIcon />
+          </>)
+        }
         </Toolbar>
       </AppBar>
     </Box>

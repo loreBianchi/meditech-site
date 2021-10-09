@@ -10,8 +10,8 @@ export default function ServicePage({
   title,
 }) {
   return (
-    <Layout maxWidth={false} disableGutters={true}>
-      <Box sx={{ minHeight: 'calc(100vh - 163px)' }}>
+    <Layout maxWidth="xl">
+      <Box sx={{ minHeight: 'calc(100vh - 163px)' }} sx={{ mt: 9 }}>
         <Jumbotron 
           backgroundImage={backgroundImage} 
           title={title}

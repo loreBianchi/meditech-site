@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Layout from "../components/Layout";
 import Grid from '@mui/material/Grid';
 import { Paper } from "@mui/material";
+import Link from 'next/link'
 
 const cards = [1, 2, 3];
 
@@ -41,8 +42,16 @@ const Homepage = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Scopri i nostri servizi</Button>
-              <Button variant="outlined">Contattaci</Button>
+              <Link href="/servizi">
+                <Button variant="contained"> 
+                  Scopri i nostri servizi
+                </Button>
+              </Link>
+              <Link href="/contatti">
+                <Button variant="outlined">
+                  Contattaci
+                </Button>
+              </Link>
             </Stack>
           </Container>
         </Box>
