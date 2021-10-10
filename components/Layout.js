@@ -2,10 +2,15 @@ import Footer from './Footer'
 import Navbar from './Navbar'
 import Container from "@mui/material/Container";
 
-export default function Layout({ children, maxWidth, disableGutters = false }) {
+export default function Layout({ 
+  children, 
+  maxWidth, 
+  disableGutters = false,
+  navbarBgChange = true 
+}) {
   return (
     <>
-      <Navbar />
+      <Navbar bgChange={navbarBgChange} />
       <Container 
         maxWidth={maxWidth} 
         disableGutters={disableGutters}

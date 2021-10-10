@@ -7,19 +7,20 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Drawer } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
-export default function Navbar() {
-  const [state, setState] = React.useState({
-    mobileView: false,
-  });
+export default function Navbar({ bgChange = true }) {
+  const [mobileView, setMobileWiew] = React.useState(false);
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [startScroll, setStartScroll] = React.useState(false);
 
-  const { mobileView } = state;
 
   React.useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 900
-        ? setState(() => ({ mobileView: true }))
-        : setState(() => ({ mobileView: false }));
+      ? setMobileWiew(true)
+      : setMobileWiew(false)
     };
 
     setResponsiveness();
@@ -30,11 +31,26 @@ export default function Navbar() {
     }
   }, []);
 
+  React.useEffect (()=>{
+    document.addEventListener("scroll", () => {
+      let scrolled = document.scrollingElement.scrollTop;
+      if (scrolled >= 50){
+        setStartScroll(true)
+      } else {
+        setStartScroll(false)
+      }
+    })
+  },[])
+
+  function toggleDrawerOpen() {
+    setDrawerOpen(!drawerOpen)
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar 
         position="fixed" 
-        color="transparent" 
+        color={!bgChange || startScroll ? "default" : "transparent"} 
         elevation={0}
         >
         <Toolbar>
@@ -67,7 +83,14 @@ export default function Navbar() {
             </Typography>
             </>)
           : (<>
-            <MenuIcon />
+            <MenuIcon onClick={() => toggleDrawerOpen()} />
+            <Drawer anchor={'top'} open={drawerOpen}>
+              <Box sx={{ p: 1}}>
+                <IconButton onClick={() => toggleDrawerOpen()}>
+                  <CloseIcon />
+                </IconButton>
+              </Box>
+            </Drawer>
           </>)
         }
         </Toolbar>

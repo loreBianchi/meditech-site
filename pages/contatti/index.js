@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 
 function Contatti() {
   return (
-     <Layout>
+     <Layout navbarBgChange={false}>
        <Container maxWidth="lg" sx={{ minHeight: 'calc(100vh - 163px)', pt: 10 }}>
        <Typography
           component="h2"
