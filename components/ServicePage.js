@@ -12,7 +12,10 @@ export default function ServicePage({
 }) {
   return (
     <Layout maxWidth="xl" navbarBgChange={false}>
-      <Box sx={{ minHeight: 'calc(100vh - 163px)' }} sx={{ mt: 9 }}>
+      <Box sx={{ 
+        minHeight: 'calc(100vh - 163px)', 
+        mt: 9 
+      }}>
         <Jumbotron 
           backgroundImage={backgroundImage} 
           title={title}
