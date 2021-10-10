@@ -73,7 +73,7 @@ export default function Navbar({ bgChange = true }) {
             </Typography>
             <Typography variant="h6" component="div" sx={{ mr: 3 }} color="primary">
               <Link href="/contatti">
-                <a>Contati</a>
+                <a>Contatti</a>
               </Link>
             </Typography>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} color="primary">
@@ -83,12 +83,34 @@ export default function Navbar({ bgChange = true }) {
             </Typography>
             </>)
           : (<>
-            <MenuIcon onClick={() => toggleDrawerOpen()} />
+            <MenuIcon onClick={() => toggleDrawerOpen()} color="primary" />
             <Drawer anchor={'top'} open={drawerOpen}>
               <Box sx={{ p: 1}}>
                 <IconButton onClick={() => toggleDrawerOpen()}>
-                  <CloseIcon />
+                  <CloseIcon color="primary" />
                 </IconButton>
+              </Box>
+              <Box sx={{ px: 2, textAlign: 'center', mb: 3 }}> 
+                <Typography variant="h6" color="primary">
+                  <Link href="/">
+                    <a>Home page</a>
+                  </Link>
+                </Typography>
+                <Typography variant="h6" color="primary">
+                  <Link href="/servizi">
+                    <a>Servizi</a>
+                  </Link>
+                </Typography>
+                <Typography variant="h6" color="primary">
+                  <Link href="/contatti">
+                    <a>Contatti</a>
+                  </Link>
+                </Typography>
+                <Typography variant="h6" color="primary">
+                  <Link href="/lavora-con-noi">
+                    <a>Lavora con noi</a>
+                  </Link>
+                </Typography>
               </Box>
             </Drawer>
           </>)
