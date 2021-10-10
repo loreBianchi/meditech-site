@@ -6,7 +6,8 @@ export default function Jumbotron({
   backgroundImage, 
   height = 400,
   title,
-  titleColor = 'white'
+  titleColor = 'white',
+  backgroundPosition,
  }) {
   return (
     <Box
@@ -18,7 +19,8 @@ export default function Jumbotron({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems:'center'
+        alignItems:'center',
+        backgroundPosition: backgroundPosition,
       }}
     >
        <Typography

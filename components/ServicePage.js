@@ -9,6 +9,8 @@ import Porfolio from './Porfolio';
 export default function ServicePage({
   backgroundImage,
   title,
+  porfolioImages,
+  backgroundPosition = 'center'
 }) {
   return (
     <Layout maxWidth="xl" navbarBgChange={false}>
@@ -19,6 +21,7 @@ export default function ServicePage({
         <Jumbotron 
           backgroundImage={backgroundImage} 
           title={title}
+          backgroundPosition={backgroundPosition}
         />
         <Container maxWidth="lg" sx={{ py: 6 }}>
         <Typography
@@ -36,7 +39,7 @@ export default function ServicePage({
             color="primary"
             sx={{ mt: 3 }}
           >
-            <Porfolio />
+            <Porfolio images={porfolioImages} />
           </Typography>
         </Container>
       </Box>
