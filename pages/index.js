@@ -42,12 +42,12 @@ const Homepage = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Link href="/servizi">
+              <Link href="/servizi" passHref>
                 <Button variant="contained"> 
                   Scopri i nostri servizi
                 </Button>
               </Link>
-              <Link href="/contatti">
+              <Link href="/contatti" passHref>
                 <Button variant="outlined">
                   Contattaci
                 </Button>
