@@ -9,6 +9,12 @@ import { Paper } from "@mui/material";
 import Link from 'next/link'
 
 const cards = [1, 2, 3];
+const flexCenter = { 
+  display: 'flex', 
+  flexDirection: 'column', 
+  alignItems: 'center', 
+  justifyContent: 'center'
+};
 
 const Homepage = () => {
   return (
@@ -16,44 +22,82 @@ const Homepage = () => {
       <>
         <Box
             sx={{ 
-              py: 30,
-              backgroundImage: '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("hero.jpeg");',
+              ...flexCenter,
+              backgroundImage: '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)), url("hero.jpeg");',
               // backgroundPosition: 'right top',
               backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover'
+              backgroundSize: 'cover',
+              height: '100vh'
              }}
           >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="primary"
-              gutterBottom
-            >
-              MediTech
-            </Typography>
-            <Typography variant="h5" align="center" color="white" paragraph>
-              Installazione e Manutenzione impianti Gas Medicali
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Link href="/servizi" passHref>
-                <Button variant="contained"> 
-                  Scopri i nostri servizi
-                </Button>
+          <Grid container spacing={2} sx={{ color: ' white', textAlign: ' center'}}>
+            <Grid item xs={6} sx={{ mb: 4 }}>
+              <Link href="/servizi/cablaggio-quadri-elettrici">
+                <a className="home-banner-link">CABLAGGIO QUADRI ELETTRICI</a>
               </Link>
-              <Link href="/contatti" passHref>
-                <Button variant="outlined">
-                  Contattaci
-                </Button>
+            </Grid>
+            <Grid item xs={6} sx={{ mb: 4 }}>
+              <Link href="/servizi/impianti-gas-medicinali">
+                <a className="home-banner-link">IMPIANTI GAS MEDICINALI</a>
               </Link>
-            </Stack>
-          </Container>
+            </Grid>
+            <Grid item xs={2} sx={flexCenter}>
+              <Link href="/servizi/impianti-gas-tecnici">
+                <a className="home-banner-link">IMPIANTI GAS TECNICI</a>
+              </Link>
+            </Grid>
+            <Grid item xs={8}>
+            <Container maxWidth="sm" className="home-title">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="primary"
+                gutterBottom
+              >
+                MediTech
+              </Typography>
+              <Typography variant="h5" align="center" color="white" paragraph>
+                Installazione e Manutenzione impianti Gas Medicali
+              </Typography>
+              <Stack
+                sx={{ pt: 4 }}
+                direction="row"
+                spacing={2}
+                justifyContent="center"
+              >
+                <Link href="/servizi" passHref>
+                  <Button variant="contained"> 
+                    Scopri i nostri servizi
+                  </Button>
+                </Link>
+                <Link href="/contatti" passHref>
+                  <Button variant="outlined">
+                    Contattaci
+                  </Button>
+                </Link>
+              </Stack>
+            </Container>            
+          </Grid>
+            <Grid 
+              item xs={2} 
+              sx={flexCenter}
+            >
+              <Link href="/servizi/manutenzione-assistenza">
+                <a className="home-banner-link">MANUTENZIONE E ASSISTENZA</a>
+              </Link>
+            </Grid>
+            <Grid item xs={6} sx={{ mt: 4 }}>
+              <Link href="/servizi/posa-cablaggio-pensili">
+                <a className="home-banner-link">POSA E CABLAGGIO PENSILI</a>
+              </Link>
+            </Grid>
+            <Grid item xs={6} sx={{ mt: 4 }}>
+              <Link href="/servizi/posa-cablaggio-testaletto">
+                <a className="home-banner-link">POSA E CABLAGGIO TESTALETTO</a>
+              </Link>
+            </Grid>
+          </Grid>
         </Box>
         <Container sx={{ my: 15 }}>
           <Typography variant="p" color="text.primary">
